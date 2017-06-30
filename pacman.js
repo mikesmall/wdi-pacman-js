@@ -1,6 +1,9 @@
 // Setup initial game stats
+// add a powerPellets variable, similar to how score and lives are setup. It should start off as 4.
+
 var score = 0;
 var lives = 2;
+var powerPellets = 4;
 
 
 // Define your ghosts here
@@ -86,6 +89,8 @@ function checkLives() {
   process.exit();
   }
 }
+
+
 
 function eatGhost(ghost) {
   if (ghost.edible == true) {
