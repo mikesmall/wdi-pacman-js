@@ -81,11 +81,12 @@ function eatDot() {
 }
 
 function eatGhost(ghost) {
-  if (ghost.edible = true) {
-    console.log('\nPac-Man ate ' + ghost.name + '. Chomp!');
+  if (ghost.edible == true) {
+    console.log('\nPac-Man ate ' + ghost.name + '. Gulp!');
+    score += 10;
   }
-  else {
-    console.log('\nOw! Pac-Man lost a life!');
+  else if (ghost.edible == false) {
+    console.log('\nOuch! ' + ghost.name + ' ate Pac-Man instead!');
     lives -= 1;
   }
 }
