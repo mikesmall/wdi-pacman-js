@@ -80,6 +80,13 @@ function eatDot() {
   score += 10;
 }
 
+function checkLives() {
+  if (lives == 0) {
+  console.log('Pac-Man ran out of lives!');
+  process.exit();
+  }
+}
+
 function eatGhost(ghost) {
   if (ghost.edible == true) {
     console.log('\nPac-Man ate ' + ghost.name + '. Gulp!');
@@ -88,6 +95,7 @@ function eatGhost(ghost) {
   else if (ghost.edible == false) {
     console.log('\nOuch! ' + ghost.name + ' ate Pac-Man instead, that ' + ghost.colour + ' rascal!');
     lives -= 1;
+    checkLives();
   }
 }
 
