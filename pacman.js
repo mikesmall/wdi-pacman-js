@@ -10,7 +10,7 @@ var powerPellets = 4;
 var inky = {
   menu_option: '1',
   name: 'Inky',
-  colour: 'red',
+  colour: 'Red',
   character: 'Shadow',
   edible: false
 };
@@ -18,7 +18,7 @@ var inky = {
 var blinky = {
   menu_option: '2',
   name: 'Blinky',
-  colour: 'cyan',
+  colour: 'Cyan',
   character: 'Speedy',
   edible: false
 };
@@ -26,7 +26,7 @@ var blinky = {
 var pinky = {
   menu_option: '3',
   name: 'Pinky',
-  colour: 'pink',
+  colour: 'Pink',
   character: 'Bashful',
   edible: false
 };
@@ -83,9 +83,13 @@ function eatDot() {
 }
 
 function eatPowerPellet() {
-  console.log('\nGulp! Time to eat a ghost!');
+  console.log('\nGulp!');
   score += 50;
   powerPellets -= 1;
+  for (var i = 0; i < ghosts.length; i++) {
+    var ghost = ghosts[i];
+    ghost.edible = true;
+  }
 }
 
 function checkLives() {
@@ -101,7 +105,7 @@ function eatGhost(ghost) {
     score += 10;
   }
   else if (ghost.edible == false) {
-    console.log('\nOuch! ' + ghost.name + ' ate Pac-Man instead, that ' + ghost.colour + ' rascal!');
+    console.log('\nOw! ' + ghost.name + ' ate Pac-Man instead! ' + ghost.colour + ' rascal!');
     lives -= 1;
     checkLives();
   }
@@ -113,6 +117,9 @@ function processInput(key) {
     case '\u0003': // This makes it so CTRL-C will quit the program
     case 'q':
       process.exit();
+      break;
+    case 'p':
+      eatPowerPellet();
       break;
     case 'd':
       eatDot();
