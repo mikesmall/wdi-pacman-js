@@ -63,6 +63,7 @@ function displayStats() {
 function displayMenu() {
   console.log('\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
+  console.log('(p) Eat Power-Pellet');
   console.log('(1) Eat Inky');
   console.log('(2) Eat Blinky');
   console.log('(3) Eat Pinky');
@@ -79,6 +80,12 @@ function displayPrompt() {
 function eatDot() {
   console.log('\nChomp!');
   score += 10;
+}
+
+function eatPowerPellet() {
+  console.log('\nGulp! Time to eat a ghost!');
+  score += 50;
+  powerPellets -= 1;
 }
 
 function checkLives() {
