@@ -61,6 +61,10 @@ function displayStats() {
 function displayMenu() {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
+  console.log('(1) Eat Inky');
+  console.log('(2) Eat Blinky');
+  console.log('(3) Eat Pinky');
+  console.log('(4) Eat Clyde');
   console.log('(q) Quit');
 }
 
@@ -85,6 +89,18 @@ function processInput(key) {
       process.exit();
       break;
     case 'd':
+      eatDot();
+      break;
+    case '1':
+      eatDot();
+      break;
+    case '2':
+      eatDot();
+      break;
+    case '3':
+      eatDot();
+      break;
+    case '4':
       eatDot();
       break;
     default:
