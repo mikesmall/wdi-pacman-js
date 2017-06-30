@@ -8,7 +8,7 @@ var lives = 2;
 var inky = {
   menu_option: '1',
   name: 'Inky',
-  colour: 'Red',
+  colour: 'red',
   character: 'Shadow',
   edible: false
 };
@@ -16,7 +16,7 @@ var inky = {
 var blinky = {
   menu_option: '2',
   name: 'Blinky',
-  colour: 'Cyan',
+  colour: 'cyan',
   character: 'Speedy',
   edible: false
 };
@@ -24,14 +24,14 @@ var blinky = {
 var pinky = {
   menu_option: '3',
   name: 'Pinky',
-  colour: 'Pink',
+  colour: 'pink',
   character: 'Bashful',
   edible: false
 };
 
 var clyde = {
   menu_option: '4',
-  name: 'Clyde',
+  name: 'clyde',
   colour: 'Orange',
   character: 'Pokey',
   edible: false
@@ -86,7 +86,7 @@ function eatGhost(ghost) {
     score += 10;
   }
   else if (ghost.edible == false) {
-    console.log('\nOuch! ' + ghost.name + ' ate Pac-Man instead!');
+    console.log('\nOuch! ' + ghost.name + ' ate Pac-Man instead, that ' + ghost.colour + ' rascal!');
     lives -= 1;
   }
 }
@@ -136,7 +136,7 @@ drawScreen();
 stdin.on('data', function(key) {
   process.stdout.write(key);
   processInput(key);
-  setTimeout(drawScreen, 300); // The command prompt will flash a message for 300 milliseoncds before it re-draws the screen. You can adjust the 300 number to increase this.
+  setTimeout(drawScreen, 2000); // The command prompt will flash a message for 300 milliseoncds before it re-draws the screen. You can adjust the 300 number to increase this.
 });
 
 // Player Quits
