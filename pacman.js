@@ -33,7 +33,7 @@ var pinky = {
 
 var clyde = {
   menu_option: '4',
-  name: 'clyde',
+  name: 'Clyde',
   colour: 'Orange',
   character: 'Pokey',
   edible: false
@@ -60,23 +60,27 @@ function displayStats() {
   console.log('\nPower-Pellets: ' + powerPellets);
 }
 
-function isEdible(ghost) {
+function isThisGhostEdible(ghost, number) {
   if (ghost.edible == true) {
-    ('edible')
+    console.log('(' + number + ') Eat ' + ghost.name + ' (edible)');
   }
   else if (ghost.edible == false) {
-    ('inedible')
+    console.log('(' + number + ') Eat ' + ghost.name + ' (inedible)');
   }
 }
 
 function displayMenu() {
-  console.log('\nSelect Option:\n');  // each \n creates a new line
+  console.log('\nSelect Action:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
   console.log('(p) Eat Power-Pellet (' + powerPellets + ' left)');
-  console.log('(1) Eat Inky (' + isEdible(inky) + ')');
-  console.log('(2) Eat Blinky (' + isEdible(blinky) + ')');
-  console.log('(3) Eat Pinky (' + isEdible(pinky) + ')');
-  console.log('(4) Eat Clyde (' + isEdible(clyde) + ')');
+  // console.log('(1) Eat Inky (' + isEdible(inky) + ')');
+  // console.log('(2) Eat Blinky (' + isEdible(blinky) + ')');
+  // console.log('(3) Eat Pinky (' + isEdible(pinky) + ')');
+  // console.log('(4) Eat Clyde (' + isEdible(clyde) + ')');
+  isThisGhostEdible(inky, 1);
+  isThisGhostEdible(blinky, 2);
+  isThisGhostEdible(pinky, 3);
+  isThisGhostEdible(clyde, 4);
   console.log('(q) Quit');
 }
 
@@ -92,7 +96,7 @@ function eatDot() {
 }
 
 function eatPowerPellet() {
-  console.log('\nGulp!');
+  console.log('\nGulp! Time to eat ghosts!');
   score += 50;
   powerPellets -= 1;
   for (var index = 0; index < ghosts.length; index++) {
@@ -167,5 +171,5 @@ stdin.on('data', function(key) {
 });
 // Player Quits
 process.on('exit', function() {
-  console.log('\n\nGame Over!\n');
+  console.log('\nGAME OVER\n');
 });
