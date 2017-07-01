@@ -60,14 +60,23 @@ function displayStats() {
   console.log('\nPower-Pellets: ' + powerPellets);
 }
 
+function isEdible(ghost) {
+  if (ghost.edible == true) {
+    ('edible')
+  }
+  else if (ghost.edible == false) {
+    ('inedible')
+  }
+}
+
 function displayMenu() {
   console.log('\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
-  console.log('(p) Eat Power-Pellet');
-  console.log('(1) Eat Inky');
-  console.log('(2) Eat Blinky');
-  console.log('(3) Eat Pinky');
-  console.log('(4) Eat Clyde');
+  console.log('(p) Eat Power-Pellet (' + powerPellets + ' left)');
+  console.log('(1) Eat Inky (' + isEdible(inky) + ')');
+  console.log('(2) Eat Blinky (' + isEdible(blinky) + ')');
+  console.log('(3) Eat Pinky (' + isEdible(pinky) + ')');
+  console.log('(4) Eat Clyde (' + isEdible(clyde) + ')');
   console.log('(q) Quit');
 }
 
@@ -86,8 +95,8 @@ function eatPowerPellet() {
   console.log('\nGulp!');
   score += 50;
   powerPellets -= 1;
-  for (var i = 0; i < ghosts.length; i++) {
-    var ghost = ghosts[i];
+  for (var index = 0; index < ghosts.length; index++) {
+    var ghost = ghosts[index];
     ghost.edible = true;
   }
 }
@@ -103,6 +112,7 @@ function eatGhost(ghost) {
   if (ghost.edible == true) {
     console.log('\nPac-Man ate ' + ghost.name + '. Gulp!');
     score += 10;
+    ghost.edible = false;
   }
   else if (ghost.edible == false) {
     console.log('\nOw! ' + ghost.name + ' ate Pac-Man instead! ' + ghost.colour + ' rascal!');
